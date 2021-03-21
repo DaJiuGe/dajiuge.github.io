@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #5e3bde;
+  height: 100%;
+}
+
+ul {
+  height: 200px; /*！！固定高度，否则变换过程中ul位置不停变化*/
+  list-style: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+li {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  float: left;
+  margin: 10px;
+}
+
+li:nth-child(1) {
+  background-color: #2ed8f2;
+  animation: jump1 2s infinite ease-in-out 0s;
+}
+
+li:nth-child(2) {
+  background-color: #22d145;
+  animation: jump2 2s infinite ease-in-out 0.05s;
+}
+
+li:nth-child(3) {
+  background-color: #f2932e;
+  animation: jump3 2s infinite ease-in-out 0.1s;
+}
+
+li:nth-child(4) {
+  background-color: #da5c5c;
+  animation: jump4 2s infinite ease-in-out 0.15s;
+}
+
+li:nth-child(5) {
+  background-color: #e815c8;
+  animation: jump5 2s infinite ease-in-out 0.2s;
+}
+li:nth-child(6) {
+  background-color: #da5c5c;
+  animation: jump4 2s infinite ease-in-out 0.25s;
+}
+li:nth-child(7) {
+  background-color: #f2932e;
+  animation: jump3 2s infinite ease-in-out 0.3s;
+}
+li:nth-child(8) {
+  background-color: #22d145;
+  animation: jump2 2s infinite ease-in-out 0.35s;
+}
+
+li:nth-child(9) {
+  background-color: #2ed8f2;
+  animation: jump1 2s infinite ease-in-out 0.4s;
+}
+
+@keyframes jump1 {
+  30%,
+  50% {
+    height: 60px;
+    transform: translateY(-30px);
+  }
+  70%,
+  100% {
+    height: 20px;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes jump2 {
+  30%,
+  50% {
+    height: 125px;
+    transform: translateY(-60px);
+  }
+  70%,
+  100% {
+    height: 20px;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes jump3 {
+  30%,
+  50% {
+    height: 160px;
+    transform: translateY(-75px);
+  }
+  70%,
+  100% {
+    height: 20px;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes jump4 {
+  30%,
+  50% {
+    height: 180px;
+    transform: translateY(-60px);
+  }
+  70%,
+  100% {
+    height: 20px;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes jump5 {
+  30%,
+  50% {
+    height: 190px;
+    transform: translateY(-45px);
+  }
+  70%,
+  100% {
+    height: 20px;
+    transform: translateY(0px);
+  }
+}
