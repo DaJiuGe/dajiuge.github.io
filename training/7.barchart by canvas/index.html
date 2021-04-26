@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BarChartByCanvas</title>
+    <style type="text/css">
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(216, 211, 211);
+      }
+      #cv {
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body onload="draw();">
+    <main>
+      <canvas id="cv" width="600" height="300"></canvas>
+    </main>
+    <script>
+      const months = [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+      ];
+      function draw() {
+        const canvas = document.getElementById("cv");
+        const ctx = canvas.getContext("2d");
+        // 获取canvas宽高
+        let cWidth = canvas.width;
+        let cHeight = canvas.height;
+
+        let padding = 40;
+        let width = 8;
+        let maxHeight = (cHeight - padding * 2) / 2;
+        let minHeight = maxHeight / 2;
+
+        let barGap = (cWidth - padding * 2 - 9 * width) / 10;
+        let y = cHeight / 2;
+        for (let i = 0; i < 9; i++) {
+          let x = padding + barGap * (i + 1) + i * width;
+          let height1 = Math.floor(
+            minHeight + Math.random() * (maxHeight - minHeight)
+          );
+          let height2 = Math.floor(
+            minHeight + Math.random() * (maxHeight - minHeight)
+          );
+          drawBar(ctx, x, y, width, height1, height2);
+          ctx.font = "500 12px sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillStyle = "#747D80";
+          ctx.fillText(months[i], x + width / 2, y + maxHeight + 20);
+        }
+      }
+      function drawBar(ctx, x, y, width, height1, height2) {
+        let radius = width / 2;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x, y - height1 + radius);
+        ctx.arcTo(x, y - height1, x + width, y - height1, radius);
+        ctx.arcTo(
+          x + width,
+          y - height1,
+          x + width,
+          y - height1 + radius,
+          radius
+        );
+        ctx.lineTo(x + width, y);
+        ctx.lineTo(x, y);
+        ctx.fillStyle = "#341F90";
+        ctx.fill();
+        ctx.beginPath();
+        ctx.lineTo(x, y + height2 - radius);
+        ctx.arcTo(x, y + height2, x + radius, y + height2, radius);
+        ctx.arcTo(
+          x + width,
+          y + height2,
+          x + width,
+          y + height2 - radius,
+          radius
+        );
+        ctx.lineTo(x + width, y);
+        ctx.lineTo(x, y);
+        ctx.fillStyle = "#54A0FF";
+        ctx.fill();
+      }
+    </script>
+  </body>
+</html>
