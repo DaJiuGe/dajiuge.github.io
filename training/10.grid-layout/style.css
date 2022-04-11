@@ -1,0 +1,327 @@
+:root {
+  --coral: hsl(23, 83%, 82%);
+  --coral--b: hsl(23, 99%, 75%);
+  --pink: hsl(335, 52%, 92%);
+  --pink--b: hsl(335, 82%, 86%);
+  --yellow: hsl(42, 97%, 85%);
+  --yellow--b: hsl(42, 100%, 73%);
+  --green: hsl(100, 64%, 86%);
+  --green--b: hsl(100, 41%, 76%);
+  --blue: hsl(187, 61%, 79%);
+  --blue--b: hsl(187, 54%, 68%);
+  --purple: hsl(283, 24%, 86%);
+  --purple--b: hsl(283, 43%, 80%);
+  --light-gray-blue: hsl(182, 29%, 96%);
+
+  --pageMax: 1260px;
+  --headerHeight: 60px;
+  --middleHeight: 300px;
+  --footerHeight: 100px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.wrapper {
+  display: grid;
+  place-items: center;
+  height: 50vh;
+  width: 50vw;
+  overflow: hidden;
+  resize: both;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.parent {
+  height: 100%;
+  width: 100%;
+}
+
+.container-1 {
+  background: var(--pink);
+}
+
+.container-1 .parent {
+  display: grid;
+  place-items: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  height: 50%;
+  width: 50%;
+  background: var(--coral);
+}
+
+.container-2 {
+  background: var(--blue);
+}
+
+.container-2 .wrapper {
+  display: grid;
+  place-items: center;
+}
+
+.container-2 .parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: var(--pink);
+}
+
+.container-2 .box {
+  flex: 0 1 150px;
+  /* flex: 1 1 150px; */
+  display: grid;
+  place-items: center;
+  margin: 5px;
+  border-radius: 16px;
+  border: 1px dashed var(--green--b);
+  background: var(--green);
+}
+
+.container-3 {
+  background: var(--yellow);
+}
+
+.container-3 .parent {
+  display: grid;
+  grid-template-columns: minmax(150px, 25%) 1fr;
+}
+
+.container-3 .side {
+  grid-column: 1 / 2;
+  background: var(--purple);
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.container-3 .main {
+  grid-column: 2 / 3;
+  background: var(--light-gray-blue);
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.container-4 .parent {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.container-4 .header {
+  grid-row: 1 / 2;
+  height: 100%;
+  width: 100%;
+  background: var(--purple);
+}
+
+.container-4 .main {
+  grid-row: 2 / 3;
+  height: 100%;
+  width: 100%;
+  background: var(--blue);
+}
+
+.container-4 .footer {
+  grid-row: 3 / 4;
+  height: 100%;
+  width: 100%;
+  background: var(--coral);
+}
+
+.container-5 .parent {
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+}
+
+.container-5 .header {
+  grid-row: 1 / 2;
+  grid-column: 1 / span 3;
+  height: 100%;
+  width: 100%;
+  background: var(--purple);
+}
+
+.container-5 .left {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  background: var(--pink);
+}
+
+.container-5 .main {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  height: 100%;
+  width: 100%;
+  background: var(--blue);
+}
+
+.container-5 .right {
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
+  background: var(--green);
+}
+
+.container-5 .footer {
+  grid-row: 3 / 4;
+  grid-column: 1 / span 3;
+  height: 100%;
+  width: 100%;
+  background: var(--coral);
+}
+
+.container-6 .parent {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(12, 1fr);
+}
+
+.container-6 .box {
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--green);
+}
+
+.container-6 .span-12 {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 12;
+  background: var(--coral);
+}
+
+.container-6 .span-6 {
+  grid-row: 2 / span 1;
+  grid-column: 3 / span 6;
+  background: var(--purple);
+}
+
+.container-6 .span-4 {
+  grid-row: 3 / span 1;
+  grid-column: 6 / span 4;
+  background: var(--blue);
+}
+
+.container-6 .span-2 {
+  grid-row: 4 / span 1;
+  grid-column: 2 / span 2;
+  background: var(--yellow);
+}
+
+.container-7 .parent {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.container-7 .box {
+  display: grid;
+  place-items: center;
+}
+
+.container-7 .box-1 {
+  background: var(--blue);
+}
+
+.container-7 .box-2 {
+  background: var(--coral);
+}
+
+.container-7 .box-3 {
+  background: var(--purple);
+}
+
+.container-7 .box-4 {
+  background: var(--green);
+}
+
+.container-8 .parent {
+  height: auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.container-8 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--yellow);
+  height: 100%;
+}
+
+.container-8 .header {
+  font-weight: 600;
+}
+
+.container-8 .main {
+  margin: 16px 0;
+}
+
+.container-8 .box {
+  height: 100px;
+  width: 100%;
+}
+
+.container-8 .box-1 {
+  background: var(--pink);
+}
+
+.container-8 .box-2 {
+  background: var(--blue);
+}
+
+.container-8 .box-3 {
+  background: var(--green);
+}
+
+.container-9 .parent {
+  display: grid;
+  place-items: center;
+}
+
+.container-9 .card {
+  width: clamp(23ch, 50%, 46ch);
+  padding: 2em;
+  background: var(--pink);
+}
+
+.container-9 .header {
+  font-weight: 600;
+}
+
+.container-9 .box {
+  margin: 16px 0;
+  height: 100px;
+  width: 100%;
+  background: var(--yellow);
+}
+
+.container-10 .parent {
+  display: grid;
+  place-items: center;
+}
+
+.container-10 .card {
+  width: 50%;
+  padding: 2em;
+  background: var(--pink);
+}
+
+.container-10 .header {
+  font-weight: 600;
+}
+
+.container-10 .box {
+  margin: 16px 0;
+  aspect-ratio: 16 / 9;
+  background: var(--yellow);
+}
